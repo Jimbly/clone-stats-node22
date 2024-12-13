@@ -1,8 +1,10 @@
-# clone-stats [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=hughskennedy&url=http://github.com/hughsk/clone-stats&title=clone-stats&description=hughsk/clone-stats%20on%20GitHub&language=en_GB&tags=flattr,github,javascript&category=software)[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #
+# clone-stats
 
 Safely clone node's
 [`fs.Stats`](http://nodejs.org/api/fs.html#fs_class_fs_stats) instances without
 losing their class methods, i.e. `stat.isDirectory()` and co.
+
+This is a fork of [hughsk/clone-stats](https://github.com/hughsk/clone-stats) but adapted to work on Node v22+ without a deprecation warning
 
 ## Usage ##
 
@@ -11,6 +13,10 @@ losing their class methods, i.e. `stat.isDirectory()` and co.
 ### `copy = require('clone-stats')(stat)` ###
 
 Returns a clone of the original `fs.Stats` instance (`stat`).
+
+## Monkey-patching other modules that depend on the original version ##
+
+### `require('module-alias').addAlias('clone-stats', 'clone-stats-node22');` ###
 
 ## License ##
 
